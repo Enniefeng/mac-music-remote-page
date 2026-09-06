@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#101014" />
+    <title>Mac 音乐遥控器</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header>
+        <div class="eyebrow">MAC MEDIA REMOTE</div>
+        <h1>把手机变成<br /><span>遥控器。</span></h1>
+        <p>控制网易云音乐、B 站和其他正在播放的媒体。</p>
+      </header>
+
+      <section id="login" class="card login-card">
+        <div class="status-row"><span class="dot"></span><span>端到端加密连接</span></div>
+        <label for="password">访问密码</label>
+        <div class="password-row">
+          <input id="password" type="password" autocomplete="current-password" placeholder="输入你的控制密码" />
+          <button id="toggle-password" class="icon-button" aria-label="显示或隐藏密码">👁</button>
+        </div>
+        <button id="connect" class="primary">连接 Mac</button>
+        <p id="login-error" class="error" role="alert"></p>
+        <small>密码只在当前设备上用于加密，不会上传到网页服务器。</small>
+      </section>
+
+      <section id="remote" class="hidden">
+        <div class="connection-pill"><span id="connection-dot" class="dot pending"></span><span id="connection-text">正在连接…</span></div>
+
+        <section class="card now-card">
+          <div class="cover"><span>♫</span></div>
+          <div>
+            <div class="kicker">正在控制</div>
+            <h2>Mac 媒体播放</h2>
+            <p id="last-action">准备就绪</p>
+          </div>
+        </section>
+
+        <section class="card controls-card">
+          <div class="control-grid primary-controls">
+            <button data-action="previous" aria-label="上一首"><span>⏮</span><small>上一首</small></button>
+            <button data-action="play-pause" class="play" aria-label="播放或暂停"><span>▶</span><small>播放 / 暂停</small></button>
+            <button data-action="next" aria-label="下一首"><span>⏭</span><small>下一首</small></button>
+          </div>
+          <div class="control-grid utility-controls">
+            <button data-action="seek-back"><span>−10</span><small>后退</small></button>
+            <button data-action="seek-forward"><span>+10</span><small>前进</small></button>
+            <button data-action="volume-down"><span>−</span><small>音量</small></button>
+            <button data-action="volume-up"><span>＋</span><small>音量</small></button>
+            <button data-action="mute"><span>⌁</span><small>静音</small></button>
+            <button data-action="fullscreen"><span>⛶</span><small>全屏</small></button>
+          </div>
+        </section>
+
+        <section class="card timer-card">
+          <div class="section-heading">
+            <div><div class="kicker">睡眠定时</div><h2>定时暂停</h2></div>
+            <span id="timer-badge" class="timer-badge hidden">未设置</span>
+          </div>
+          <div class="preset-grid">
+            <button data-minutes="15">15 分钟</button>
+            <button data-minutes="30">30 分钟</button>
+            <button data-minutes="45">45 分钟</button>
+            <button data-minutes="60">60 分钟</button>
+          </div>
+          <div class="custom-row">
+            <input id="custom-minutes" type="number" min="1" max="1440" inputmode="numeric" placeholder="自定义分钟" />
+            <button id="set-custom">设置</button>
+          </div>
+          <div id="countdown" class="countdown hidden"></div>
+          <button id="cancel-timer" class="danger hidden">取消定时</button>
+        </section>
+
+        <button id="logout" class="text-button">断开并清除本机密码</button>
+      </section>
+    </main>
+    <div id="toast" class="toast" role="status"></div>
+    <script src="./app.js"></script>
+  </body>
+</html>
