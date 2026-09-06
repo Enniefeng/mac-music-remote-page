@@ -25,6 +25,9 @@ header p, .now-card p { color: var(--muted); margin: 0; line-height: 1.55; }
 .login-card label { display: block; margin: 22px 0 9px; font-size: 13px; color: var(--muted); }
 .status-row, .connection-pill { display: flex; align-items: center; gap: 9px; color: var(--muted); font-size: 13px; }
 .connection-pill { width: fit-content; margin: 0 0 14px 4px; }
+.target-switch { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; padding: 5px; margin-bottom: 14px; border: 1px solid var(--line); border-radius: 16px; background: #15151a; }
+.target-switch button { border: 0; border-radius: 11px; padding: 10px 6px; background: transparent; color: var(--muted); font-size: 13px; }
+.target-switch button.active { background: var(--card-2); color: var(--text); box-shadow: 0 4px 14px rgba(0,0,0,.2); }
 .dot { width: 8px; height: 8px; border-radius: 99px; background: var(--green); box-shadow: 0 0 0 5px rgba(99,213,146,.1); }
 .dot.pending { background: var(--accent-2); box-shadow: 0 0 0 5px rgba(255,155,69,.1); }
 .dot.offline { background: #8b8994; box-shadow: 0 0 0 5px rgba(139,137,148,.1); }
